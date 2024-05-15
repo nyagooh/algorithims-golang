@@ -28,6 +28,7 @@ func main() {
 	a := []int{123,445,667,888,999}
 	j := v.Max(a)
 	fmt.Println(j)
+	
 
 }
 func lastParam() {
