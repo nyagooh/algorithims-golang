@@ -11,15 +11,22 @@
 package main
 
 import (
-	"fmt"
+	// "fmt"
 	"os"
+	"strings"
+	"github.com/01-edu/z01"
 	// "strings"
-
 	// "github.com/01-edu/z01"
 )
 func main(){
 	args := os.Args[1:]
-	args2 := args[0]
+	if len(args) != 1{
+		return
+	}
+	args2 :=strings.TrimSpace(args[0])
+	if args2 == "" {
+		return
+	}
 	var count int = 1
 	var index int
 	for i,ch := range args2 {
@@ -28,6 +35,10 @@ func main(){
 			index = i
 		}
 	}
-   result := (args2[index+1:]) 
-   fmt.Println(result)
+   result := (args2[index:]) 
+   result2 := strings.TrimSpace(result)
+   for _,ch := range result2 {
+	z01.PrintRune(ch)
+   }
+   z01.PrintRune(10)
 }
