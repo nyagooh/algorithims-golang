@@ -11,11 +11,11 @@
 package main
 
 import (
-	"fmt"
+	// "fmt"
 	"os"
 	// "strings"
 
-	// "github.com/01-edu/z01"
+	"github.com/01-edu/z01"
 )
 func main(){
 	args := os.Args[1:]
@@ -28,6 +28,8 @@ func main(){
 			index = i
 		}
 	}
-   result := (args2[index+1:]) 
-   fmt.Println(result)
+   result := (args2[index:]) 
+   for _,ch := range result {
+	z01.PrintRune(ch)
+   }
 }
