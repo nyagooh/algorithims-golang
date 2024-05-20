@@ -17,3 +17,31 @@
 // abcd
 // $ go run . "something" "a" "o" "b" "c"
 // $
+package main
+
+import (
+	"fmt"
+	"os"
+)
+
+func main(){
+	args1 := []byte(os.Args[1:][0])
+	args2 := []byte(os.Args[1:][1])
+	args3 := []byte(os.Args[1:][2])
+	if len(os.Args[1:]) != 3 {
+		return
+	}
+	    for ch := range args2 {
+		    for val := range args3 {
+				for i:= 0;i < len(args1);i++{
+					if args1[i] == args2[ch] {
+						args1[i] = args3[val]
+					} 
+			
+				}
+			}
+		}
+		fmt.Println(string(args1))
+	}
+
+
