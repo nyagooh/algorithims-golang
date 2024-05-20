@@ -20,9 +20,9 @@
 // )
 
 // func main() {
-// 	fmt.Println(piscine.Compare("Hello!", "Hello!"))
-// 	fmt.Println(piscine.Compare("Salut!", "lut!"))
-// 	fmt.Println(piscine.Compare("Ola!", "Ol"))
+// 	fmt.Println(Compare("Hello!", "Hello!"))
+// 	fmt.Println(Compare("Salut!", "lut!"))
+// 	fmt.Println(Compare("Ola!", "Ol"))
 // }
 
 // And its output :
@@ -32,3 +32,28 @@
 // -1
 // 1
 // $
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println(Compare("Hello!", "Hello!"))
+	fmt.Println(Compare("Salut!", "lut!"))
+	fmt.Println(Compare("Ola!", "Ol"))
+}
+func Compare(s, b string) int {
+	count := 0
+	for ch := range s {
+		count++
+		for i := 0; i < len(b); i++ {
+			if s[ch] == b[i] && len(s) == len(b) {
+				return 0
+			} else if s[ch] == b[i] && len(s) != len(b) {
+				return 1
+			} else if s[ch] != b[i] && len(s) != len(b) {
+				return -1
+			}
+		}
+	}
+	return count
+}

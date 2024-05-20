@@ -27,7 +27,7 @@ func main() {
 func ReduceInt(a []int, f func(int, int) int) {
   char := a[0]
   var result int
-  for i:= 1; i < len(a);i++ {
+  for i:= 0; i < len(a);i++ {
 	result = f(char,a[i])
 
   }
