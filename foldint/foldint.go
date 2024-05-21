@@ -1,9 +1,13 @@
 // foldint
 // Instructions
 
+<<<<<<< HEAD
 // The function should have as parameters a function, f func(int, int) int a slice of integers, slice []int and an int acc int.
 // For each element of the slice, it should apply the arithmetic function, save the result and print it.
 // The function will be tested with our own functions Add, Sub, and Mul.
+=======
+// The function should have as parameters a function, f func(int, int) int a slice of integers, slice []int and an int acc int. For each element of the slice, it should apply the arithmetic function, save the result and print it. The function will be tested with our own functions Add, Sub, and Mul.
+>>>>>>> 20834b4cdd843a04453382b23f41f0633496c6dd
 // Expected function
 
 // func FoldInt(f func(int, int) int, a []int, n int) {
@@ -41,6 +45,7 @@
 // 0
 // 93
 // $
+<<<<<<< HEAD
 package main
 
 import "fmt"
@@ -77,3 +82,5 @@ func Mul(a ,b int)int{
 func Sub(a ,b int)int{
 	return a - b
 }
+=======
+>>>>>>> 20834b4cdd843a04453382b23f41f0633496c6dd
