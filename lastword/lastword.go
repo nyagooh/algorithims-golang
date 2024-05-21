@@ -16,12 +16,9 @@ import (
 	"strings"
 	"github.com/01-edu/z01"
 	// "strings"
-<<<<<<< HEAD
 
-	"github.com/01-edu/z01"
-=======
 	// "github.com/01-edu/z01"
->>>>>>> 20834b4cdd843a04453382b23f41f0633496c6dd
+	// "github.com/01-edu/z01"
 )
 func main(){
 	args := os.Args[1:]
@@ -41,15 +38,12 @@ func main(){
 		}
 	}
    result := (args2[index:]) 
-<<<<<<< HEAD
-   for _,ch := range result {
-	z01.PrintRune(ch)
-   }
-=======
+//    for _,ch := range result {
+// 	z01.PrintRune(ch)
+//    }
    result2 := strings.TrimSpace(result)
    for _,ch := range result2 {
 	z01.PrintRune(ch)
    }
    z01.PrintRune(10)
->>>>>>> 20834b4cdd843a04453382b23f41f0633496c6dd
 }

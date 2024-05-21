@@ -7,7 +7,7 @@
 // If it is possible, the program displays the string followed by a newline ('\n'), otherwise it simply displays nothing.
 
 // If the number of arguments is different from 2, the program displays nothing./ 
-"faya" "fghaufghysdera"
+// "faya" "fghaufghysdera"
 
 package main
 
@@ -18,17 +18,17 @@ import (
 	"github.com/01-edu/z01"
 )
 
-func main() {
-	arg1 := os.Args[1]
-	arg2 := os.Args[2]
+// func main() {
+// 	arg1 := os.Args[1]
+// 	arg2 := os.Args[2]
 
-	str := ""
+// 	str := ""
 
-	for i, v := range arg2 {
+// 	for i, v := range arg2 {
 		
-	}
+// 	}
 
-}
+// }
 
 func main() {
 	args := os.Args[1:]

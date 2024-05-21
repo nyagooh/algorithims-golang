@@ -22,12 +22,26 @@ func main() {
 		result = string(arraycap)
 	}
 	fmt.Println(result)
-	// for _, r := range args {
-	// 		if r >= 'a' && r <= 'z'{
-	// 			index := (r - 'a')
-	// 			arraycap = append(arraycap,array2[index])
+	// for _, ch := range args {
+	// 	r := []rune(ch)
+	// 	for i,val := range r {
+	// 		if val >= 'a'&& val <= 'z' {
+	// 			index := 'a' + 'z' - val
+	// 			r[i] = index
+	// 		} else if val >= 'A' && val <= 'Z' {
+	// 			opposite := 'A' + 'Z' - val
+	// 			r[i] = opposite
+	// 		}
+
 	// 	}
-	// 	result = string(arraycap)}
-	//  fmt.Println(result)
+	// 	result := string(r)
+	//     for _, ch := range result {
+	// 		z01.PrintRune(ch)
+	// 	}
+	//  }
+	//  z01.PrintRune(10)
+
 }
+
+
 

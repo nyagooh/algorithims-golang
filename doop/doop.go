@@ -36,7 +36,6 @@
 
 // Numeric Types
 // Arithmetic Operators
-<<<<<<< HEAD
 package main
 
 import (
@@ -114,6 +113,4 @@ func main() {
 	fmt.Println()
 
 }
-=======
 
->>>>>>> 20834b4cdd843a04453382b23f41f0633496c6dd
