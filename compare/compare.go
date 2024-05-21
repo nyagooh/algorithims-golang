@@ -32,3 +32,37 @@
 // -1
 // 1
 // $
+
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	fmt.Println(Compare("Hello!", "Hello!"))
+	fmt.Println(Compare("Salut!", "lut!"))
+	fmt.Println(Compare("Ola!", "Ol"))
+}
+func Compare(a, b string) int {
+	// count:= 0
+	// for char := range a{
+	// 	for i:=0;i<len(b);i++{
+	// 		count++
+	// 		if b[i] == a[char]&& len(a) == len(b){
+	// 			return 0
+	// 		} else if  b[i] != a[char]&& len(a) != len(b) {
+	// 			return -1
+	// 		} else if   b[i] == a[char]&& len(a) != len(b) {
+	// 			return 1
+	// 		}
+	// 	}
+	// }
+	// return count
+	if a == b {
+		return 0
+	} else if a < b {
+		return -1
+	}
+	return 1
+}
