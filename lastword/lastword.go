@@ -13,37 +13,36 @@ package main
 import (
 	// "fmt"
 	"os"
-	"strings"
+
 	"github.com/01-edu/z01"
 	// "strings"
-
+	// "github.com/01-edu/z01"
+	// "strings"
 	// "github.com/01-edu/z01"
 	// "github.com/01-edu/z01"
 )
-func main(){
-	args := os.Args[1:]
-	if len(args) != 1{
-		return
-	}
-	args2 :=strings.TrimSpace(args[0])
-	if args2 == "" {
-		return
-	}
-	var count int = 1
-	var index int
-	for i,ch := range args2 {
-		if ch == ' ' {
-			count++
-			index = i
+
+func main() {
+	args := os.Args[1]
+
+	str := ""
+	for i := len(args) - 1; i >= 0; i-- {
+		if string(args[i]) == " " && str == "" {
+			continue
+		} 
+		 if string(args[i]) != " "  {
+			str = string(args[i]) + str
 		}
+		if string(args[i]) == " " {
+			break
+		}
+		
+
+
 	}
-   result := (args2[index:]) 
-//    for _,ch := range result {
-// 	z01.PrintRune(ch)
-//    }
-   result2 := strings.TrimSpace(result)
-   for _,ch := range result2 {
-	z01.PrintRune(ch)
-   }
-   z01.PrintRune(10)
+	
+	for _, ch := range str {
+		z01.PrintRune(ch)
+	}
+	z01.PrintRune(10)
 }

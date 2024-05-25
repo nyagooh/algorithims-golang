@@ -8,15 +8,12 @@ import (
 
 func lastParam() {
 	args := os.Args[1:]
+	new := args[len(args)-1]
 	if len(args) > 1 {
-		for _, char := range args {
-			for _, value := range char {
-				if char  == args[len(args)-1] {
-					z01.PrintRune(value)
-				} 
-			}
+		for _ , ch := range new {
+			z01.PrintRune(ch)
 		}
-	} 
 	z01.PrintRune('0')
 	z01.PrintRune('\n')
+}
 }

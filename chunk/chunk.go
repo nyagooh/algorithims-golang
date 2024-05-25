@@ -1,4 +1,3 @@
-
 // chunk
 // Write a function called Chunk that receives as parameters a slice, slice []int, and a number size int. The goal of this function is to
 // chunk a slice into many sub slices where each sub slice has the length of size.
@@ -28,6 +27,7 @@ package main
 
 import (
 	"fmt"
+
 	// "strings"
 )
 
@@ -46,25 +46,48 @@ func Chunk(slice []int, size int) {
 		fmt.Println(slice)
 		return
 	}
-	
+
 	var result [][]int
-
-	buffer := []int{}
-	for i := 0; i < len(slice); i++ {
-		if i != 0 && i % size == 0 {
-			result = append(result, buffer)
-			buffer = []int{}
-			buffer = append(buffer, slice[i])
-		} else {
-			buffer = append(buffer, slice[i])
+	 for i := 0 ; i <= len(slice)-1;i+=size {
+		end := i+ size
+		if end  > len(slice) {
+			end = len(slice)
 		}
-	}
+		result = append(result, slice[i:end])
+	 }
+	 fmt.Println(result)
 
-	if len(buffer) > 0 {
-		result = append(result, buffer)
-	} 
-	
+	// buffer := []int{}
+	// for i := 0; i < len(slice); i++ {
+	// 	if i != 0 && i%size == 0 {
+	// 		result = append(result, buffer)
+	// 		buffer = []int{}
+	// 		buffer = append(buffer, slice[i])
+	// 	} else {
+	// 		buffer = append(buffer, slice[i])
+	// 	}
+	// }
 
-	fmt.Println(result)
-
+	// if len(buffer) > 0 {
+	// 	result = append(result, buffer)
+	// }
+	//  print2DArray(result)
 }
+// func print2DArray(a [][]int) {
+// 	z01.PrintRune('[')
+// 	for i, innerSlice := range a {
+// 		if i > 0 {
+// 			z01.PrintRune(' ')
+// 		}
+// 		z01.PrintRune('[')
+// 		for j, num := range innerSlice {
+// 			if j > 0 {
+// 				z01.PrintRune(' ')
+// 			}
+// 			z01.PrintRune(rune(num) + '0')
+// 		}
+// 		z01.PrintRune(']')
+// 	}
+// 	z01.PrintRune(']')
+// 	z01.PrintRune(10)
+// }

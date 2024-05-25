@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	str := "Tandiwe and nyagooh"
+	str := "Tandiwe and nyagooh jjjjffjjdjd djdjd jdjdjdjfdnkjk"
 	first := v.FirstRune(str)
 	last := v.LastRune(str)
 	z01.PrintRune(first)
@@ -17,7 +17,7 @@ func main() {
 	z01.PrintRune(last)
 	z01.PrintRune('\n')
 	v.DisplayAlpham()
-	s := "Hello world"
+	s := "Hello world nnfhdhsundyehcdbde"
 	l := v.StringLength(s)
 	fmt.Println(l)
 	v.ReverseAlp()

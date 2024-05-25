@@ -70,8 +70,7 @@ func main() {
 	punctuation := []string{"+", "-", "*", "/", "%"}
 	for i := 0; i < len(punctuation); i++ {
 		if args1 != punctuation[i] {
-			// fmt.Println(1)
-			break
+			return
 		}
 	}
 	if num < 0 && num > 9 {
@@ -82,35 +81,41 @@ func main() {
 	}
 	var result int
 	maxint := 9223372036854775807
-	if num == maxint && num1 != 0 {
+	if num == maxint && num1 != 0 && args1 != "*" {
 		return
 	}
 	switch args1 {
 	case "+":
 		result = num + num1
 		fmt.Printf("%d", result)
+		fmt.Println()
 	case "-":
 		result = num - num1
 		fmt.Printf("%d", result)
+		fmt.Println()
 	case "*":
 		result = num * num1
 		fmt.Printf("%d", result)
+		fmt.Println()
 	case "/":
+		result = num / num1
 		if num1 == 0 {
 			fmt.Println("No division by 0")
-			return
+			// return
 		}
-		result = num / num1
 		fmt.Printf("%d", result)
+		fmt.Println()
 	case "%":
+		result = num % num1
 		if num1 == 0 {
 			fmt.Println("No modulo by 0")
 			return
 		}
-		result = num % num1
 		fmt.Printf("%d", result)
+		fmt.Println()
 	}
 	fmt.Println()
+
 
 }
 

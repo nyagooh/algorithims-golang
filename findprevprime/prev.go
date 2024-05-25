@@ -39,10 +39,29 @@ func main() {
 }
 
 func FindPrevPrime(nb int) int {
-	if nb > 1 && nb%2 != 0 || nb == 2 {
-		return nb
-	} else if nb > 1 && nb%2 == 0 && nb != 2 {
-		return nb - 1
+	if nb <= 1 {
+		return 0
 	}
-	return nb
+	prime := nb
+	for !IsPrime(prime) {
+		nb--
+	}
+	return prime
+}
+func IsPrime(num int)bool{
+	if num <= 1 {
+		return false
+	}
+	if num <= 3 {
+		return true
+	}
+	if num%2 == 0 || num%3 == 0{
+		return false
+	}
+	for i := 5;i*i <=num;i+=6{
+		if num%i == 0 || num%(i+2) == 0 {
+			return false
+		}
+	}
+	return true
 }

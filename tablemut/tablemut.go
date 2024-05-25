@@ -37,6 +37,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+
+	// "github.com/01-edu/z01"
 	// "github.com/01-edu/z01"
 )
 
@@ -51,17 +53,19 @@ func main() {
 		return
 	}
 	// var result int
-	results := 0
+	new := 0
 	// atoi function
 	for _, ch := range args1 {
 		if ch < '0' || ch > '9' {
 			log.Fatal("invalid number")
 		}
-		results = results*10 + int(ch-'0')
+		new = new*10 + int(ch-'0')
 	}
 	for i := 1; i <= 9; i++ {
-		new := results * i
-		fmt.Printf("%d*%d=%d\n",i,results,new)
+		result := new * i
+		// output := result + '0'
+		fmt.Printf("%d*%d=%d\n",i,new,result)
+		// z01.PrintRune(rune(output))
 	}
 	
 // how to range a number when using printrune
