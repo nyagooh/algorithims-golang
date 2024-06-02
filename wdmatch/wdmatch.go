@@ -47,6 +47,7 @@ func main() {
 			if char == args2[i] {
 				match = i+1
 				lens++
+				break
 			}
 		}
 	}
