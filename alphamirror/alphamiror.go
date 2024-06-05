@@ -30,26 +30,19 @@ func main() {
 	if len(args) != 1 {
 		z01.PrintRune(10)
 	}
-	// array1 := []rune{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}
-	// array2 := []rune{'z', 'y', 'x', 'w', 'v', 'u', 't', 's', 'r', 'q', 'p', 'o', 'n', 'm', 'l', 'k', 'j', 'i', 'h', 'g', 'f', 'e', 'd', 'c', 'b', 'a'}
-	// arraycap := []rune{}
-	 for _, ch := range args {
-		r := []rune(ch)
-		for i,val := range r {
-			if val >= 'a'&& val <= 'z' {
-				index := 'a' + 'z' - val
-				r[i] = index
-			} else if val >= 'A' && val <= 'Z' {
-				opposite := 'A' + 'Z' - val
-				r[i] = opposite
+	args1 := []rune(args[0])
+	for i,ch := range args1{
+			if ch>= 'a' && ch<= 'z' {
+				index := 'a' + 'z' -ch
+				args1[i] = index
+			}else if ch>= 'A' && ch<= 'Z' {
+				index := 'A' + 'Z' - ch
+				args1[i] = index
 			}
-
 		}
-		result := string(r)
-	    for _, ch := range result {
-			z01.PrintRune(ch)
-		}
-	 }
-	 z01.PrintRune(10)
-
+		results := string(args1)
+	for _, ch := range results {
+		z01.PrintRune(ch)
+	}
+z01.PrintRune(10)
 }

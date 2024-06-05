@@ -40,31 +40,22 @@ func ReduceInt(a []int, f func(int, int) int) {
 	}
 
 }
-func itoa(s int) string {
+func itoa (s int)string {
 	sign := 1
 	str := ""
 	if s < 1 {
-		s *= -1
-		sign *= -1
+		sign*=-1
+		s*=-1
 	}
-	for s > 0 {
+	for s > 0{
 		digit := s % 10
-		str = string(digit+'0') + str
-		s /= 10
+		str = string(digit + '0') + str
+		s/=10
 	}
 	if sign < 0 {
 		str = "-" + str
 	}
 	return str
 }
-// func atoi(s string) int {
 
-// 	str := 0
-// 	for _, ch := range s {
-// 		if ch < '0' || ch > '9' {
 
-// 		}
-// 		str = str*10 + int(ch-'0')
-// 	}
-// 	return str
-// }
