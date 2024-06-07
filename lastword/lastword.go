@@ -31,7 +31,7 @@ func main() {
 			continue
 		} 
 		 if string(args[i]) != " "  {
-			str = string(args[i]) + str
+			str = string(args[i])
 		}
 		if string(args[i]) == " " {
 			break

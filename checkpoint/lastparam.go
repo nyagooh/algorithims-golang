@@ -15,5 +15,6 @@ func lastParam() {
 		}
 	z01.PrintRune('0')
 	z01.PrintRune('\n')
+	}
 }
-}
+

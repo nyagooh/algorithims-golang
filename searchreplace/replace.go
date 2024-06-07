@@ -26,9 +26,9 @@ import (
 )
 
 func main(){
-	args1:=[]byte(os.Args[1:][0])
-	args2 :=[]byte (os.Args[1:][1])
-	args3:=[]byte (os.Args[1:][2])
+	args1:=[]rune(os.Args[1:][0])
+	args2 :=[]rune (os.Args[1:][1])
+	args3:=[]rune (os.Args[1:][2])
 	if len(os.Args[1:]) != 3 {
 		return
 	}

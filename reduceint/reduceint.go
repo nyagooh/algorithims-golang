@@ -49,7 +49,7 @@ func itoa(s int) string {
 	}
 	for s > 0 {
 		digit := s % 10
-		str = string(digit+'0') + str
+		str = string(digit + '0') + str
 		s /= 10
 	}
 	if sign < 0 {

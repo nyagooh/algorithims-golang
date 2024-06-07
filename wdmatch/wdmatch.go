@@ -40,20 +40,24 @@ func main() {
 	args1 := []rune(os.Args[1:][0])
 	args2 := []rune(os.Args[1:][1])
 	match := 0
-	lens := 0
-	
+	// lens := 0
+	var result []rune
 	for _, char := range args1 {
 		for i := match; i <= len(args2)-1; i++ {
 			if char == args2[i] {
 				match = i+1
-				lens++
+				result = append(result, char)
 				break
 			}
 		}
 	}
 	
-	if lens == len(args1) {
-		for _, ch := range args1 {
+	// if lens == len(args1) {
+	// 	for _, ch := range args1 {
+	// 		z01.PrintRune(ch)
+	// 	}
+	if len(result) == len(args1) {
+		for _, ch := range result {
 			z01.PrintRune(ch)
 		}
 	}
