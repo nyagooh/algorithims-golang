@@ -19,7 +19,7 @@ func main() {
 	div := func(acc int, cur int) int {
 		return acc / cur
 	}
-	as := []int{500, 2}
+	as := []int{500, 2, 3, 4}
 	ReduceInt(as, mul)
 	ReduceInt(as, sum)
 	ReduceInt(as, div)
@@ -29,16 +29,15 @@ func ReduceInt(a []int, f func(int, int) int) {
 		z01.PrintRune(' ')
 	}
 	input := a[0]
-	var result int
 	for i := 1; i < len(a); i++ {
-		result = f(input, a[i])
+		input = f(input, a[i])
 	}
 	//itoa
-	output := itoa(result)
+	output := itoa(input)
 	for _, ch := range output {
 		z01.PrintRune(ch)
 	}
-
+	z01.PrintRune(10)
 }
 func itoa (s int)string {
 	sign := 1

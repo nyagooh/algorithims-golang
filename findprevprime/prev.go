@@ -34,32 +34,36 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println(IsPrime(63))
-	fmt.Println(IsPrime(91))
+	fmt.Println(FindPrevPrime(5))
+	fmt.Println(FindPrevPrime(4))
 }
 
-// func FindPrevPrime(nb int) int {
-// 	if nb <= 1 {
-// 		return 0
-// 	}
-// 	prime := nb
-// 	for !IsPrime(prime) {
-// 		nb--
-// 	}
-// 	return prime
-// }
-func IsPrime(num int)bool{
+func FindPrevPrime(nb int) int {
+	if nb <= 1 {
+		return 0
+	}
+	prime := nb
+	for !IsPrime(prime) {
+		prime--
+	}
+	return prime
+}
+
+func IsPrime(num int) bool {
+	if num <= 1 {
+		return false
+	}
 	if num < 2 {
 		return false
 	}
-	// if num <= 3 {
-	// 	return true
-	// }
-	// if num%2 == 0 || num%3 == 0{
-	// 	return false
-	// }
-	for i := 2;i*i <=num;i++{
-		if num%i == 0 {
+	if num <= 3 {
+		return true
+	}
+	if num%2 == 0 || num%3 == 0 {
+		return false
+	}
+	for i := 5; i*i <= num; i += 6 {
+		if num%i == 0 || num%(i+2) == 0 {
 			return false
 		}
 	}
