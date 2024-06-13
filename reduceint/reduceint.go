@@ -19,7 +19,7 @@ func main() {
 	div := func(acc int, cur int) int {
 		return acc / cur
 	}
-	as := []int{500, 2, 3, 4}
+	as := []int{500, 2,}
 	ReduceInt(as, mul)
 	ReduceInt(as, sum)
 	ReduceInt(as, div)
@@ -56,5 +56,4 @@ func itoa (s int)string {
 	}
 	return str
 }
-
 

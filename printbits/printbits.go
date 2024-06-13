@@ -37,7 +37,7 @@ func main() {
 		// new /= 2
 	}
 	padder := 8 - len(result)
-	for i := 1; i <= padder; i++ {
+	for i := 0; i < padder; i++ {
 		result = "0" + result
 	}
 	fmt.Println(result)

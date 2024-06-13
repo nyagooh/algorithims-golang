@@ -33,9 +33,9 @@ func main(){
 		return
 	}
 	for i := 0;i<len(args1);i++ {
-		for  ch := range args2{
+		for  j := range args2{
 			for val := range args3{
-				if args1[i] == args2[ch] {
+				if args1[i] == args2[j] {
 					args1[i] = args3[val]
 				} 
 			}

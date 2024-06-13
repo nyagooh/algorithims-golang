@@ -26,7 +26,7 @@ import (
 	"log"
 	"os"
 )
-
+//bitwise operation
 func main() {
 	// atoi function
 	var new int
@@ -38,22 +38,24 @@ func main() {
 	}
 
 	fmt.Println(Ispower(new))
+	fmt.Println(iIspower(new,2))
 }
 
 func Ispower(n int) bool {
-	// if number == 1{
-	// 	if number == 1{
-	// 		return true
-	// 	}
-	// 	for number%base == 0 {
-	// 		number /= base
-	// 		if number == 1{
-	// 			return true
-	// 		}
-	// 	}
-	// return false
 	if n > 0 && n&(n-1) == 0 {
 		return true
+	}
+	return false
+}
+func iIspower (n , base int)bool{
+	if n == 1 {
+		return true
+	}
+	for n % base == 0 {
+		n /= base 
+		if n == 1 {
+			return true
+		}
 	}
 	return false
 }

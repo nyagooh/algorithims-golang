@@ -48,30 +48,27 @@ func Chunk(slice []int, size int) {
 	}
 
 	var result [][]int
-	 for i := 0 ; i <= len(slice)-1;i+=size {
-		end := i+ size
-		if end  > len(slice) {
-			end = len(slice)
+	for i:= 0; i <len(slice);{
+		buffer:=[]int{}
+		for j := 0;j <size;j++{
+			buffer = append(buffer, slice[i])
+			i++
+			if i == len(slice){
+				break
+			}
 		}
-		result = append(result, slice[i:end])
-	 }
-	 fmt.Println(result)
-
-	// buffer := []int{}
-	// for i := 0; i < len(slice); i++ {
-	// 	if i != 0 && i%size == 0 {
-	// 		result = append(result, buffer)
-	// 		buffer = []int{}
-	// 		buffer = append(buffer, slice[i])
-	// 	} else {
-	// 		buffer = append(buffer, slice[i])
+		result = append(result,buffer)
+	}
+	fmt.Println(result)
+	//  for i := 0 ; i <= len(slice)-1;i+=size {
+	// 	end := i+ size
+	// 	if end  > len(slice) {
+	// 		end = len(slice)
 	// 	}
-	// }
-
-	// if len(buffer) > 0 {
-	// 	result = append(result, buffer)
-	// }
-	//  print2DArray(result)
+	// 	result = append(result, slice[i:end])
+	//  }
+	//  fmt.Println(result)
+	 
 }
 // func print2DArray(a [][]int) {
 // 	z01.PrintRune('[')

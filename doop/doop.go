@@ -41,6 +41,7 @@ package main
 import (
 	"fmt"
 	"log"
+
 	// "math/big"
 	"os"
 	"strconv"
@@ -68,8 +69,8 @@ func main() {
 		log.Fatalf("string convert atoi has an error")
 	}
 	punctuation := []string{"+", "-", "*", "/", "%"}
-	for i := 0; i < len(punctuation); i++ {
-		if args1 != punctuation[i] {
+	for _, k := range punctuation {
+		if args1 != k {
 			return
 		}
 	}
@@ -98,24 +99,22 @@ func main() {
 		fmt.Printf("%d", result)
 		fmt.Println()
 	case "/":
-		result = num / num1
 		if num1 == 0 {
 			fmt.Println("No division by 0")
 			// return
 		}
+		result = num / num1
 		fmt.Printf("%d", result)
 		fmt.Println()
 	case "%":
-		result = num % num1
 		if num1 == 0 {
 			fmt.Println("No modulo by 0")
 			return
 		}
+		result = num % num1
 		fmt.Printf("%d", result)
 		fmt.Println()
 	}
 	fmt.Println()
 
-
 }
-

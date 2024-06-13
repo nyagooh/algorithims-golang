@@ -28,7 +28,6 @@ import (
 	"os"
 )
 
-
 func main(){
 	args := os.Args
 	args1 := args[1]
