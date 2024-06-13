@@ -36,85 +36,77 @@
 
 // Numeric Types
 // Arithmetic Operators
-package main
+
+	package main
 
 import (
-	"fmt"
-	"log"
-
-	// "math/big"
 	"os"
-	"strconv"
 )
 
 func main() {
-	ar := os.Args[1:]
-	if len(ar) == 0 {
-		log.Fatal("invalid number of arguments")
+	args := os.Args[1:]
+	if len(args) != 3 {
 		return
 	}
-	args := ar[0]
-	args1 := ar[1]
-	args3 := ar[2]
-	if len(args) == 0 {
-		log.Fatal("invalid number of arguments")
+	seen := map[string]bool{
+		"*": true,
+		"/": true,
+		"+": true,
+		"-": true,
+		"%": true,
+	}
+	if !seen[args[1]] {
 		return
 	}
-	num, err := strconv.Atoi(args)
-	if err != nil {
-		log.Fatalf("string convert atoi has an error")
-	}
-	num1, err := strconv.Atoi(args3)
-	if err != nil {
-		log.Fatalf("string convert atoi has an error")
-	}
-	punctuation := []string{"+", "-", "*", "/", "%"}
-	for _, k := range punctuation {
-		if args1 != k {
+	for i, ch := range args[0] {
+		if i == 0 && (ch == '+' || ch == '-') {
+			continue
+		} else if ch < '0' || ch > '9' {
 			return
 		}
 	}
-	if num < 0 && num > 9 {
-		return
-	}
-	if num1 < 0 && num1 > 9 {
-		return
-	}
-	var result int
-	maxint := 9223372036854775807
-	if num == maxint && num1 != 0 && args1 != "*" {
-		return
-	}
-	switch args1 {
-	case "+":
-		result = num + num1
-		fmt.Printf("%d", result)
-		fmt.Println()
-	case "-":
-		result = num - num1
-		fmt.Printf("%d", result)
-		fmt.Println()
-	case "*":
-		result = num * num1
-		fmt.Printf("%d", result)
-		fmt.Println()
-	case "/":
-		if num1 == 0 {
-			fmt.Println("No division by 0")
-			// return
-		}
-		result = num / num1
-		fmt.Printf("%d", result)
-		fmt.Println()
-	case "%":
-		if num1 == 0 {
-			fmt.Println("No modulo by 0")
+	for i, ch := range args[2] {
+		if i == 0 && (ch == '+' || ch == '-') {
+			continue
+		} else if ch < '0' || ch > '9' {
 			return
 		}
-		result = num % num1
-		fmt.Printf("%d", result)
-		fmt.Println()
 	}
-	fmt.Println()
+	num1 := Atoi(args[0])
+	// num2 := Atoi(args[2])
+	os.Stdout.WriteString(Itoa(num1) + "\n")
+}
 
+func Atoi(n string) int {
+	sign := 1
+	var result int
+	if n[0] == '-' {
+		sign *= -1
+		n = n[1:]
+	}
+	for _, ch := range n {
+		result = result*10 + int(ch-'0')
+	}
+	return result * sign
+}
+
+func Itoa(n int) string {
+	var result string
+	sign := 1
+	if n == 0 {
+		return "0"
+	}
+	if n < 0 {
+		sign *= -1
+		n *= -1
+	}
+	for n > 0 {
+		digit := n % 10
+		result = string(digit+'0') + result
+		n /= 10
+	}
+	if sign < 0 {
+		result = "-" + result
+	}
+	return result
 }
