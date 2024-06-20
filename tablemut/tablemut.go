@@ -42,6 +42,8 @@ import (
 	// "github.com/01-edu/z01"
 )
 
+
+
 func main() {
 	args := os.Args[1:]
 	if len(args) == 0 {
@@ -52,25 +54,48 @@ func main() {
 	if len(args1) == 0 {
 		return
 	}
-	// var result int
-	new := 0
-	// atoi function
-	for _, ch := range args1 {
-		if ch < '0' || ch > '9' {
-			log.Fatal("invalid number")
-		}
-		new = new*10 + int(ch-'0')
-	}
+	var output string
 	for i := 1; i <= 9; i++ {
-		result := new * i
-		// output := result + '0'
-		fmt.Printf("%d*%d=%d\n",i,new,result)
-		// z01.PrintRune(rune(output))
+		result := Atoi(args1) * i
+		str := Itoa(result)
+		str2 := Itoa(i)
+		output = str2 + "*"+ args1 + "=" + str
+		os.Stdout.WriteString(output)
+		os.Stdout.WriteString("\n")
+		
 	}
-	
-// how to range a number when using printrune
-	// for _, ch := range fmt.Sprintf("%d",result) {
-	// 	z01.PrintRune(ch)
-	// }
-	
 }
+func Atoi(n string) int {
+	sign := 1
+	var result int
+	if n[0] == '-' {
+		sign *= -1
+		n = n[1:]
+	}
+	for _, ch := range n {
+		result = result*10 + int(ch-'0')
+	}
+	return result * sign
+}
+
+func Itoa(n int) string {
+	var result string
+	sign := 1
+	if n == 0 {
+		return "0"
+	}
+	if n < 0 {
+		sign *= -1
+		n *= -1
+	}
+	for n > 0 {
+		digit := n % 10
+		result = string(digit+'0') + result
+		n /= 10
+	}
+	if sign < 0 {
+		result = "-" + result
+	}
+	return result
+}
+
