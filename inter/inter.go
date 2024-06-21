@@ -41,15 +41,13 @@ func main() {
 		}
 	}
 	fmt.Println(result)
-	v := map[string]int{
-		"nyagooh": 888,
-		"bruh":    444,
-		"wambo":   666,
-		"mom":     777,
+	// v := map[string]int{
+		// "nyagooh": 888,
+		// "bruh":    444,
+		// "wambo":   666,
+		// "mom":     777,
 	}
-	output := SortMap(v)
-
-}
+	// output := SortMap(v)
 
 //sorting key and values in a map
 func Sortkeys(s map[string]int) {

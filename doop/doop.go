@@ -37,7 +37,7 @@
 // Numeric Types
 // Arithmetic Operators
 
-	package main
+package main
 
 import (
 	"os"
@@ -73,8 +73,12 @@ func main() {
 		}
 	}
 	num1 := Atoi(args[0])
-	// num2 := Atoi(args[2])
-	os.Stdout.WriteString(Itoa(num1) + "\n")
+	num2 := Atoi(args[2])
+	const overflow = 9223372036854775807
+	if num1 >= overflow || num2 >= overflow || num1 <= -overflow || num2 <= -overflow {
+		return
+	}
+	// os.Stdout.WriteString(Itoa(num1) + "\n")
 }
 
 func Atoi(n string) int {

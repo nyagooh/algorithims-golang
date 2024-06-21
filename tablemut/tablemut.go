@@ -35,7 +35,7 @@ package main
 
 import (
 	"fmt"
-	"log"
+	// "log"
 	"os"
 
 	// "github.com/01-edu/z01"
@@ -59,7 +59,7 @@ func main() {
 		result := Atoi(args1) * i
 		str := Itoa(result)
 		str2 := Itoa(i)
-		output = str2 + "*"+ args1 + "=" + str
+		output = str2 + " x "+ args1 + " = " + str
 		os.Stdout.WriteString(output)
 		os.Stdout.WriteString("\n")
 		
