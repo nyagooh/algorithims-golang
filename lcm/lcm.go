@@ -24,7 +24,7 @@ func main() {
 }
 
 func Lcm (n,v int)int {
-gcd := 1
+var gcd int
 var lcm int
 	for i :=1; i <= v && i <= n; i++{
 		if n % i == 0 && v % i == 0 {
