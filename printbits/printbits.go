@@ -19,22 +19,21 @@ func main() {
 	}
 	var new int
 	var result string
+	// atoi function
 	for _, ch := range args {
 		if ch < '0' || ch > '9' {
-			continue
+			return
 		}
 		new = new*10 + int(ch-'0')
 	}
+	//itoa binary function
 	for new > 0 {
 		if new % 2 == 0 {
-			result = "0" + result
+			result = "0"+ result
 		}else {
 			result = "1" + result
 		}
-		new /= 2
-		// str := new % 2
-		// result = string(str + '0') + result
-		// new /= 2
+		new /=2
 	}
 	padder := 8 - len(result)
 	for i := 0; i < padder; i++ {
