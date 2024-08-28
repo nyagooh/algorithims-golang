@@ -6,7 +6,7 @@
 
 Usage
 
-$ go run . 225225
+$ 
 3*3*5*5*7*11*13
 $ go run . 8333325
 3*3*5*5*7*11*13*37
@@ -22,52 +22,74 @@ $ go run . 1
 $*/
 package main
 import (
-	// "fmt"
+	"fmt"
 	"os"
 	"strconv"
 )
-func main(){
-	factors := Fprime(8333325)
-	result := strconv.Itoa(factors[0])
-	for i:=1;i<len(factors);i++ {
-		result += "*" + strconv.Itoa(factors[i]) 
-	}
-	os.Stdout.WriteString(result + "\n")
+
+func main() {
+args := os.Args[1:]
+if len(args) > 1 {
+	return
 }
-func Fprime(n int)[]int{
-	result := []int{}
-	for i:= 0;i<=n;i++{
-		if ISPrime(i) && n%i == 0 {
+factors ,err := strconv.Atoi(args[0])
+if err != nil {
+	return
+}
+if factors <= 1 {
+    return
+}
+// var result string
+primes := fPrime(factors)
+str := itoa(primes[0])
+for i:= 1; i<len(primes);i++{
+	str+= "*"+itoa(primes[i])
+}
+fmt.Println(str)
+}
+func fPrime(n int)[]int{
+	var result []int
+	for i:=2;i<= n;i++{
+		if n%i==0&&IsPrime(i){
 			result = append(result,i)
 			n/=i
 		}
-		if n%i == 0 {
-			result = append(result ,i)
-			n/=1
+		if n%i == 0{
+			result = append(result,i)
+			n/=i
 		}
-	}
+		}
 	return result
 }
-func ISPrime(n int)bool {
-	if n <= 1 {
+func IsPrime(num int)bool{
+	
+	if num <2{
 		return false
 	}
-	if n <= 3 {
-		return true
-	}
-	if n %3 == 0 || n %2 == 0 {
-		return false
-	}
-	for i := 5;i*i<= n;i+=6 {
-		if n%i == 0 && n % (i+2) == 0{
+	for i:=2;i<num;i++{
+		if num%i==0{
 			return false
 		}
-		
 	}
 	return true
 }
-
-
+func itoa (num int) string {
+	sign := 1
+	if num <0{
+		sign =-1
+		num = num*-1
+	}
+	var str string
+	for num >0 {
+		digit := num%10
+		str = string(digit+'0') + str
+		num/=10
+	}
+	if sign < 0 {
+		str = "-"+str
+	}
+	return str
+}
 
 
 
