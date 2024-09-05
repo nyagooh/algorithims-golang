@@ -7,37 +7,32 @@ func main() {
 	fmt.Println(FifthAndSkip("This is a short sentence"))
 	fmt.Println(FifthAndSkip("1234"))
 }
+
 func FifthAndSkip(str string) string {
-	if len(str) == 0 || len(str) == 5 {
-		return ""
-	}
-	words := split(str)
+	var sentence string
 	var result string
-	for i, char := range words {
-		if i%5 == 0 && i != 0 {
-			result += " "
+	var count int = 0
+	for _, c := range str {
+		if c == ' ' {
+			continue
+		} else {
+			sentence += string(c)
 		}
-		if i != 4 {
-			result += string(char)
+	}
+
+	for i, c := range sentence {
+		count++
+		if i == 0 {
+			result += string(c)
+			continue
 		}
+		if count%6 == 0 {
+			result += string(" ")
+			count = 0
+		} else {
+			result += string(c)
+		}
+
 	}
 	return result
 }
-func split(str string) []string {
-	var result []string
-	word := ""
-	for _, value := range str {
-		if value != ' ' {
-			word += string(value)
-		}
-		if value == ' ' {
-			result = append(result, word)
-			word = ""
-		}
-	}
-	if word != "" {
-		result = append(result, word)
-	}
-	return result
-}
-//
