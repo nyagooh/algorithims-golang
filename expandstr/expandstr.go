@@ -9,6 +9,7 @@
 package main
 
 import (
+	"fmt"
 	"os"
 )
 
@@ -21,22 +22,26 @@ func main() {
 	var result2 []string
 	word := ""
 	for _, ch := range args {
-		if string(ch) != " " {
-			word += string(ch)
+		if string(ch) == " " {
+			if word != "" {
+				result2 = append(result2, word)
+				word = ""
+			}
+
 		} else {
-			result2 = append(result2, word)
-			word = ""
+			word += string(ch)
 		}
 	}
 	if word != "" {
 		result2 = append(result2, word)
 	}
-	for i, ch := range result2 {
-		if i != len(result2)-1{
-		os.Stdout.WriteString(ch + "   ")
-		}
-		if i == len(result2)-1 {
-			os.Stdout.WriteString(ch + "\n")
-		}
+	fmt.Println(result2)
+	result := ""
+	for i := 0; i < len(result2)-1; i++ {
+		result += result2[i] + "   "
+		
+
 	}
+	 result+= result2[len(result2)-1]
+	fmt.Println(result)
 }
